@@ -1,0 +1,16 @@
+We will create a simple react app that uses a json file to render some movie cards from scratch using webpack and babel, 'create-react-app' will not be used ;).
+
+SUMMARY
+1. Initialize the project
+	We run 'npm init -y' to create a 'package.json' file that will define the project dependencies.
+
+2. Add web pack to the project
+	From the docs: "At its core, webpack is a static module bundler for modern JavaScript applications. When webpack processes your application, it internally builds a dependency graph which maps every module your project needs and generates one or more bundles" (https://webpack.js.org/concepts/).
+
+	So "Webpack is a tool that lets you compile JavaScript modules, also known as module bundler. Given a large number of files, it generates a single file (or a few files) that run your app" (https://flaviocopes.com/webpack/).
+	
+	We install it with
+
+		'npm install --save-dev webpack webpack-cli'
+
+	This command installs webpack and its cli as a dev dependency, wich means it won't be included in the production build.
