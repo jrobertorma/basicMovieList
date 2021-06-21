@@ -39,3 +39,49 @@ SET UP JAVASCRIPT DEVELOPMENT ENVIRONMENT
 
 CONFIGURING WEBPACK TO WORK WITH REACT
 
+	2.1 Install react and react-dom into the project
+
+		'npm install react react-dom'
+
+		This command adds react and react-dom to the webpack dependencies, notice we don't install them as 'dev' dependencies.
+
+	2.2 Install Babel and it's related packages
+		We need to compile the react code into a javascript version that every browser can read, we use Babel for that
+
+		'npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-loader'
+
+	2.3 Configure loader, in order to call Babel when we run the application
+		We create a file named 'webpack.config.js' in the root directory and add the following code:
+
+			module.exports = {
+				module: {
+					rules: [
+						{
+							test: /\.js$/,
+							exclude: /node_modules/,
+							use: {
+								loader:'"babel-loader',
+							},
+						},
+					],
+				},
+			}
+
+		This code tells webpack to use the babel compiler for every file with the .js extension, excluding the .js files in the node_modiles directory.
+
+	2.4 Create babel's configuration file
+		We create a new file in the root directory named '.babelrc' and place the following code:
+
+			{
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": "current"
+							}
+						}
+					],
+					"@babel/react"
+				]
+			}
