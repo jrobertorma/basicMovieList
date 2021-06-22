@@ -60,7 +60,7 @@ CONFIGURING WEBPACK TO WORK WITH REACT
 							test: /\.js$/,
 							exclude: /node_modules/,
 							use: {
-								loader:'"babel-loader',
+								loader:'babel-loader',
 							},
 						},
 					],
@@ -85,3 +85,69 @@ CONFIGURING WEBPACK TO WORK WITH REACT
 					"@babel/react"
 				]
 			}
+
+	2.5 Configuring files and react scripts to work with webpack
+		2.5.1 First we create the app's entry point in the src\index.js file, we add this code:
+			
+			import React from 'react';
+			import ReactDOM from 'react-dom';
+
+			const App = () => {
+			    return <h1>movieList</h1>
+			}
+
+			ReactDOM.render(<App/>, document.getElementById('root'));
+
+			It gets the html 'root' component and renders the react App component
+
+		2.5.2 Then we create the src\index.html file, and add the following code:
+
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+			    <meta charset="UTF-8">
+			    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+			    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>movieList</title>
+			</head>
+			<body>
+			    <section id="root"></section>
+			</body>
+			</html>
+
+			The code creates the 'root' element in which the app will be rendered.
+
+		2.5.3 Extend webpack to bundle src\index.js and index.html files
+			We must install 
+
+				npm install --save-dev html-webpack-plugin
+
+			And add it to the webpack.config.js
+
+				const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+				const htmlPlugin = new HtmlWebPackPlugin({
+					template: './src/index.html',
+					filename: './index.html',
+				});
+
+				module.exports = {
+				    module: {
+				        rules: [
+				            {
+				                test: /\.js$/,
+				                exclude: /node_modules/,
+				                use: {
+				                    loader:'babel-loader',
+				                },
+				            },
+				        ],
+				    },
+
+				    plugins: [htmlPlugin],
+				}
+
+			The htmlPlugin const bundles the index.html file wih the js scripts that render the react app, if we run npm start it will bundle a new dist/index.html file calling dist/main.js that contains the react app.
+
+		2.5.4 Creating a development server
+
