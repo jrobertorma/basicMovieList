@@ -147,7 +147,34 @@ CONFIGURING WEBPACK TO WORK WITH REACT
 				    plugins: [htmlPlugin],
 				}
 
-			The htmlPlugin const bundles the index.html file wih the js scripts that render the react app, if we run npm start it will bundle a new dist/index.html file calling dist/main.js that contains the react app.
+			The htmlPlugin const bundles the index.html file wih the js scripts that render the react app, if we run 'npm start' it will bundle a new dist/index.html file calling dist/main.js that contains the react app.
 
 		2.5.4 Creating a development server
+			If you want to see your app you should open the index.html file from the /dist folder, and run 'npm start' every time you made a change, this may feel a little bit tedious, fortunately we have a package to handle that. We run:
+
+				npm install --save-dev webpack-dev-server
+
+			And edit the 'start' script at package.json, to call a webpack local server instance, the '--open' flag makes sure webpack is restarted every time an update is made to any of the project files.
+
+				...
+
+				"scripts": {
+					"start": "webpack-dev-server --mode development --open", // <--- We changed this line :3
+					"build": "webpack --mode production",
+					"test": "echo \"Error: no test specified\" && exit 1"
+				},
+
+				...
+
+			A note of caution
+			It is possible that if you follow all this steps in 2021 (or later) and run 'npm start' the script throws an error that includes this line:
+
+				"Error: Cannot find module 'webpack-cli/bin/config-yargs'"
+
+			According to a stack overlfow thread (https://stackoverflow.com/questions/59611597/error-cannot-find-module-webpack-cli-bin-config-yargs), this may be due to the webpack version, the latest one being incompatible with webpack-dev-server, this may change in the future, but if you don't want to wait until the devs launch a patch, you can install the webpack 3 cli (the older version) and the error should disappear.
+
+				'npm install webpack-cli@3.3.11'
+
+			You can also try the thread solutions lol.
+
 
