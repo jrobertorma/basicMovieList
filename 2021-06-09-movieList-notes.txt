@@ -31,8 +31,7 @@ SET UP JAVASCRIPT DEVELOPMENT ENVIRONMENT
 
 			...
 
-		'npm start' will run webpack in development
-		mode and 'npm build' will run webpack in production mode.
+		'npm start' will run webpack in development mode and 'npm build' will run webpack in production mode.
 
 	1.4 Create entry point for the app
 		We create a new directory named 'src' and a new file called 'index.js' inside it.
@@ -175,6 +174,12 @@ CONFIGURING WEBPACK TO WORK WITH REACT
 
 				'npm install webpack-cli@3.3.11'
 
-			You can also try the thread solutions lol.
+			You can also try some the thread solutions lol.
 
+BUILDING THE APP
+	3.1 Create the project's structure
+		There is no explicit rule on how to structure a react app code, but two common aproaches are to order the files by type or by feature, I'll be using the second one because I'm a little bit more familiar with it.
 
+		So, right now I'm not sure of what components the app will have, but we can think in 'containers' and 'components', the first ones will have state and functionalities (button handlers, forms, etc.) the second ones will only get props and render stuff.
+
+		We'll create two new directories within the /src folder, one named 'containers' and the other named 'components'
