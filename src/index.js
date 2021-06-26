@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import MovieList from './containers/List';
+import MovieList from './containers/MovieList';
 
 const App = () => {
     const [movies, setMovies] = useState([        {
