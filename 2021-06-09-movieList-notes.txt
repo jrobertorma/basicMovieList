@@ -182,7 +182,7 @@ BUILDING THE APP
 
 		So, right now I'm not sure of what components the app will have, but we can think in 'containers' and 'components', the first ones will have state and functionalities (button handlers, forms, etc.) the second ones will only get props and render stuff.
 
-		We'll create two new directories within the /src folder, one named 'containers' and the other named 'components', and within them we'll create a 'Card' and a 'List' named folders.
+		We'll create two new directories within the /src folder, one named 'containers' and the other named 'components', and within them we'll create a 'MovieCard' and a 'MovieList' folders.
 
 		Finally we create the components and save them in its corresponding index.js files.
 

@@ -1,29 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import MovieCard from "../../components/MovieCard";
 
-class MovieList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            movies: this.props.movies
-        }
-    }
-    render() { 
-        const {movies} = this.state;
-
-        return (   
-            <div>
-                <p>YOYOYO, SOY MOVIELIST Y LLAMO A :</p>
-                
-                {
-                    movies.map ( movie => (
-                            <MovieCard key={movie.imdbID} movie={movie}/>
-                        )
+const MovieList = (props) => {
+    return ( 
+        <div>
+            <p>YOYOYO, SOY MOVIELIST Y LLAMO A :</p>
+            {/* <p>{movies[0].Title}</p> */}
+            {
+                props.movies.map ( movie => (
+                        <MovieCard key={movie.imdbID} movie={movie}/>
                     )
-                }
-            </div> 
-        );
-    }
+                )
+            }
+        </div> 
+    );
 }
  
 export default MovieList;
@@ -31,9 +21,11 @@ export default MovieList;
 /**
  * We get an array of objects and render it using a map.
  * 
- * Notice that a map() in JSX can't contain curly braces '{}' in the callback definition. 
+ * Notice that a map() in JSX can't contain curly braces '{}' in the callback function definition. 
  * I initially thought that as the JS docs allow it (https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 
  * React would do te same, but no lol (https://reactjs.org/docs/lists-and-keys.html).
+ * 
+ * So be careful, and use parenthesis () when the callback function requires more than one line.
  * 
  * movies.map ( movie => { <MovieCard movie={movie}/> } ); // won't work
  * 
