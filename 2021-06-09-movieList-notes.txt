@@ -190,3 +190,5 @@ BUILDING THE APP
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o
 https://www.freecodecamp.org/news/react-movie-app-tutorial/ - How to fetch data from the API
+https://reactjs.org/docs/hooks-state.html
+https://reactjs.org/docs/hooks-rules.html
