@@ -186,9 +186,12 @@ BUILDING THE APP
 
 		Finally we create the components and save them in its corresponding index.js files.
 
+	//src\index.js, nextPage() doesn't work properly, the app only updates the api call after two clicks when first clicked, the state does update with one though, so IDK T.T
+
 
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o
 https://www.freecodecamp.org/news/react-movie-app-tutorial/ - How to fetch data from the API
 https://reactjs.org/docs/hooks-state.html
 https://reactjs.org/docs/hooks-rules.html
+https://medium.com/swlh/building-controlled-forms-using-functional-components-in-react-965d033a89bd
