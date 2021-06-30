@@ -8,7 +8,7 @@ const App = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 	let [pageNumber, setPageNumber] = useState(1);
 
-	const getMovieRequest = async (searchTerm) => {
+	const getMovieRequest = async (searchTerm,pageNumber) => {
 		const url = searchTerm 
 			? `http://www.omdbapi.com/?s=${searchTerm}&apikey=25b028b4&page=${pageNumber}`
 			: `http://www.omdbapi.com/?s=&apikey=25b028b4`;
@@ -22,24 +22,28 @@ const App = () => {
 	};
 
 	const handleSearchSubmit = (event) => {
-		getMovieRequest(searchTerm);
+		getMovieRequest(searchTerm, pageNumber);
 		event.preventDefault();
 	};
 
 	const previousPage = () => {
-		pageNumber > 1 ? setPageNumber(pageNumber - 1): pageNumber;
-		getMovieRequest(searchTerm);
+		if (pageNumber > 1) { 
+			setPageNumber(pageNumber - 1);
+			getMovieRequest(searchTerm, pageNumber-1);
+		} else { 
+			getMovieRequest(searchTerm, pageNumber);
+		};
+		
 	}
 
 	const nextPage = () => {
 		setPageNumber(pageNumber + 1);
-		
-		getMovieRequest(searchTerm);
+		getMovieRequest(searchTerm, pageNumber+1);
 	}
 
-	useEffect(() => {
-		getMovieRequest(searchTerm);
-	}, [searchTerm]);
+	// useEffect(() => {
+	// 	getMovieRequest(searchTerm);
+	// }, [searchTerm]);
 
     return (
         <div>
