@@ -37,7 +37,6 @@ SET UP JAVASCRIPT DEVELOPMENT ENVIRONMENT
 		We create a new directory named 'src' and a new file called 'index.js' inside it.
 
 CONFIGURING WEBPACK TO WORK WITH REACT
-
 	2.1 Install react and react-dom into the project
 
 		'npm install react react-dom'
@@ -186,12 +185,30 @@ BUILDING THE APP
 
 		Finally we create the components and save them in its corresponding index.js files.
 
-	//src\index.js, nextPage() doesn't work properly, the app only updates the api call after two clicks when first clicked, the state does update with one though, so IDK T.T
+	3.2 App component
+		It is located at src\index.js, it makes an API call with the fetch() method (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and retrieves the movie data, it uses react state to handle the page and search values changes and then resends the API request, to finally render the results calling the <MovieList /> component.
 
+	3.3 MovieList component
+		It gets an array of movie objects and renders it using map() with every array item as argument of the callback function wich calls the <MovieCard /> component.
+
+	3.4 MovieCard component
+		It gets a movie object and renders it as a card (eventually lol)
+
+ADDING STYLES
+	4.1 Install Material UI
+		npm install @material-ui/core
+
+	4.2 Install roboto font
+		npm install @fontsource/roboto
+
+	4.3 Install svg icons (optional)
+		npm install @material-ui/icons
 
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o
 https://www.freecodecamp.org/news/react-movie-app-tutorial/ - How to fetch data from the API
-https://reactjs.org/docs/hooks-state.html
-https://reactjs.org/docs/hooks-rules.html
-https://medium.com/swlh/building-controlled-forms-using-functional-components-in-react-965d033a89bd
+https://reactjs.org/docs/hooks-state.html - About useState hook
+https://reactjs.org/docs/hooks-rules.html - About the use of hooks
+https://medium.com/swlh/building-controlled-forms-using-functional-components-in-react-965d033a89bd - Controlled forms using functional components
+https://blog.logrocket.com/axios-or-fetch-api/ - When to use fetch() instead of axios
+https://material-ui.com/

@@ -12,12 +12,16 @@ const App = () => {
 		const url = searchTerm 
 			? `http://www.omdbapi.com/?s=${searchTerm}&apikey=25b028b4&page=${pageNumber}`
 			: `http://www.omdbapi.com/?s=&apikey=25b028b4`;
-		console.log(url);
+
+		// console.log(url);
+
 		const response = await fetch(url);
 		const responseJson = await response.json();
 
 		if (responseJson.Search) {
 			setMovies(responseJson.Search);
+		} else {
+			setPageNumber(pageNumber - 1);
 		}
 	};
 
@@ -70,6 +74,7 @@ const App = () => {
 					Next Page
 				</button>
 			</div>
+			
             <MovieList movies={movies} />
         </div>
     )
