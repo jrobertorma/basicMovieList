@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import MovieList from './containers/MovieList';
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 const App = () => {
     const [movies, setMovies] = useState([]);
 	const [searchTerm, setSearchTerm] = useState('');
@@ -51,6 +53,7 @@ const App = () => {
 
     return (
         <div>
+			<CssBaseline />
             <h1>movieList</h1>
 			
 			<form onSubmit={ (event) => handleSearchSubmit(event) }>

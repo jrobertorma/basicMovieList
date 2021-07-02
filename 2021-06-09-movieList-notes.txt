@@ -204,6 +204,15 @@ ADDING STYLES
 	4.3 Install svg icons (optional)
 		npm install @material-ui/icons
 
+	4.4 Replace vanilla components with the correspondant Material UI components
+		4.4.1 Add the Responsive meta tag to the HTML header, this helps with the 'mobile first' approach of MUI (https://material-ui.com/getting-started/usage/#responsive-meta-tag)
+
+		4.4.2 Add <Baseline /> component to normalize all the page within the <App /> component (https://material-ui.com/components/css-baseline/)
+		
+		4.4.3 Add theme provider to control the app styles (https://material-ui.com/customization/theming/) <--- AQUÍ VAS :P
+
+
+
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o
 https://www.freecodecamp.org/news/react-movie-app-tutorial/ - How to fetch data from the API
@@ -211,4 +220,4 @@ https://reactjs.org/docs/hooks-state.html - About useState hook
 https://reactjs.org/docs/hooks-rules.html - About the use of hooks
 https://medium.com/swlh/building-controlled-forms-using-functional-components-in-react-965d033a89bd - Controlled forms using functional components
 https://blog.logrocket.com/axios-or-fetch-api/ - When to use fetch() instead of axios
-https://material-ui.com/
+https://material-ui.com/ - Material UI docs
