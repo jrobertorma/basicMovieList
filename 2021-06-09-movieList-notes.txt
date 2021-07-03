@@ -209,7 +209,9 @@ ADDING STYLES
 
 		4.4.2 Add <Baseline /> component to normalize all the page within the <App /> component (https://material-ui.com/components/css-baseline/)
 		
-		4.4.3 Add theme provider to control the app styles (https://material-ui.com/customization/theming/) <--- AQUÍ VAS :P
+		4.4.3 Add theme provider to control the app styles (https://material-ui.com/customization/theming/)
+			Create src\theme.js file and customize the theme (https://material-ui.com/customization/palette/)
+			Wrap the <App /> component with the theme provider <--- AQUÍ VAS :P
 
 
 

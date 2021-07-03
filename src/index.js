@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import MovieList from './containers/MovieList';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './theme';
 
 const App = () => {
     const [movies, setMovies] = useState([]);
@@ -52,7 +54,7 @@ const App = () => {
 	// }, [searchTerm]);
 
     return (
-        <div>
+        <ThemeProvider theme={theme}> 
 			<CssBaseline />
             <h1>movieList</h1>
 			
@@ -79,7 +81,7 @@ const App = () => {
 			</div>
 			
             <MovieList movies={movies} />
-        </div>
+		</ThemeProvider>
     )
 }
 
