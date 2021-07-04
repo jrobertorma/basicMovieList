@@ -6,6 +6,12 @@ import MovieList from './containers/MovieList';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const App = () => {
     const [movies, setMovies] = useState([]);
@@ -56,31 +62,41 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}> 
 			<CssBaseline />
-            <h1>movieList</h1>
-			
-			<form onSubmit={ (event) => handleSearchSubmit(event) }>
-				<input 
-					type="text" 
-					name="searchTerm" 
-					value={searchTerm}
-					onChange={ (event) => setSearchTerm(event.target.value) }
-				/>
-				<button type="submit">
-					Search
-				</button>
-			</form>
-			
-			<div>
-				<p>Page:{pageNumber}</p>
-				<button onClick={() => previousPage()}>
-					Previous page
-				</button>
-				<button onClick={() => nextPage()}>
-					Next Page
-				</button>
-			</div>
-			
-            <MovieList movies={movies} />
+
+			<Container>
+				<Box my={4}>
+					<Typography variant="h4" component="h1" gutterBottom>
+						movieList
+					</Typography>
+
+					<form onSubmit={ (event) => handleSearchSubmit(event) }>
+						<TextField 
+							id="searchTerm" 
+							
+							name="searchTerm" 
+							value={searchTerm}
+							onChange={ (event) => setSearchTerm(event.target.value) }
+						/>
+
+						
+							<Button type="submit" variant="contained" color="primary">
+								Search
+							</Button>
+					</form>
+
+					<div>
+						<p>Page:{pageNumber}</p>
+						<button onClick={() => previousPage()}>
+							Previous page
+						</button>
+						<button onClick={() => nextPage()}>
+							Next Page
+						</button>
+					</div>
+
+					<MovieList movies={movies} />
+				</Box>
+    		</Container>
 		</ThemeProvider>
     )
 }
