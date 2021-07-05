@@ -211,7 +211,9 @@ ADDING STYLES
 		
 		4.4.3 Add theme provider to control the app styles (https://material-ui.com/customization/theming/)
 			Create src\theme.js file and customize the theme (https://material-ui.com/customization/palette/)
-			Wrap the <App /> component with the theme provider <--- AQUÍ VAS :P
+			Wrap the <App /> component with the theme provider
+
+		4.4.4 Rebuild components with material ui
 
 
 

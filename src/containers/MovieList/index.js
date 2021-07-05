@@ -4,7 +4,6 @@ import MovieCard from "../../components/MovieCard";
 const MovieList = (props) => {
     return ( 
         <div>
-            <p>YOYOYO, SOY MOVIELIST Y LLAMO A :</p>
             {/* <p>{movies[0].Title}</p> */}
             {
                 props.movies.map ( movie => (

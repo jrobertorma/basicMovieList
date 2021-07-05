@@ -13,3 +13,7 @@ const MovieCard = ({movie}) => {
 }
  
 export default MovieCard;
+
+/**
+ * https://material-ui.com/components/cards/#media
+ */

@@ -10,8 +10,8 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const App = () => {
     const [movies, setMovies] = useState([]);
@@ -42,8 +42,8 @@ const App = () => {
 
 	const previousPage = () => {
 		if (pageNumber > 1) { 
-			setPageNumber(pageNumber - 1);
 			getMovieRequest(searchTerm, pageNumber-1);
+			setPageNumber(pageNumber-1);
 		} else { 
 			getMovieRequest(searchTerm, pageNumber);
 		};
@@ -51,8 +51,8 @@ const App = () => {
 	}
 
 	const nextPage = () => {
-		setPageNumber(pageNumber + 1);
 		getMovieRequest(searchTerm, pageNumber+1);
+		setPageNumber(pageNumber+1);
 	}
 
 	// useEffect(() => {
@@ -64,35 +64,55 @@ const App = () => {
 			<CssBaseline />
 
 			<Container>
+			
 				<Box my={4}>
 					<Typography variant="h4" component="h1" gutterBottom>
 						movieList
 					</Typography>
 
 					<form onSubmit={ (event) => handleSearchSubmit(event) }>
-						<TextField 
-							id="searchTerm" 
+						<Grid container spacing={3}>
+							<Grid item xs={2}> 
+								<TextField 
+									id="searchTerm" 
+									name="searchTerm" 
+									value={searchTerm}
+									onChange={ (event) => setSearchTerm(event.target.value) }
+								/>
+							</Grid>
 							
-							name="searchTerm" 
-							value={searchTerm}
-							onChange={ (event) => setSearchTerm(event.target.value) }
-						/>
-
+							<Grid item xs={2}> 
+								<Button type="submit" variant="contained" color="primary">
+									Search
+								</Button>
+							</Grid>
+						</Grid>
 						
-							<Button type="submit" variant="contained" color="primary">
-								Search
-							</Button>
 					</form>
 
-					<div>
-						<p>Page:{pageNumber}</p>
-						<button onClick={() => previousPage()}>
-							Previous page
-						</button>
-						<button onClick={() => nextPage()}>
-							Next Page
-						</button>
-					</div>
+					<Grid container spacing={3}>
+						<Grid item xs={12}>
+							<p>Page:{pageNumber}</p>
+						</Grid>
+						<Grid item xs={2}>
+							<Button 
+								variant="contained" 
+								color="primary" 
+								onClick={() => previousPage()}
+							>
+								Previous page
+							</Button>
+						</Grid>
+						<Grid item xs={2}> 
+							<Button 
+								variant="contained" 
+								color="primary" 
+								onClick={() => nextPage()}
+							>
+								Next page
+							</Button>
+						</Grid>
+					</Grid>
 
 					<MovieList movies={movies} />
 				</Box>
