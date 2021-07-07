@@ -215,6 +215,8 @@ ADDING STYLES
 
 		4.4.4 Rebuild components with material ui
 
+			Cards doesn't resize <- AQUÍ VAAAAAAAAS :P
+
 
 
 COOL LINKS

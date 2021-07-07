@@ -1,17 +1,22 @@
 import React from "react";
+
+import Grid from '@material-ui/core/Grid';
+
 import MovieCard from "../../components/MovieCard";
 
 const MovieList = (props) => {
     return ( 
-        <div>
+        <Grid container spacing={3}>
             {/* <p>{movies[0].Title}</p> */}
             {
                 props.movies.map ( movie => (
-                        <MovieCard key={movie.imdbID} movie={movie}/>
+                        <Grid item xs={3}>
+                            <MovieCard key={movie.imdbID} movie={movie}/>
+                        </Grid>
                     )
                 )
             }
-        </div> 
+        </Grid> 
     );
 }
  

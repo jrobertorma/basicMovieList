@@ -11,10 +11,10 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: 555,
     },
     media: {
-      height: 510,
+      height: 428,
     },
   });
 
@@ -34,13 +34,7 @@ const MovieCard = ({movie}) => {
                 {movie.Title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-                Year: {movie.Year}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                imdbID: {movie.imdbID}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                Type: {movie.Type}
+                Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
             </Typography>
             </CardContent>
         </CardActionArea>
@@ -56,18 +50,6 @@ const MovieCard = ({movie}) => {
     );
 }
 
-// const MovieCard = ({movie}) => {
-//     return ( 
-//         <div>  
-//             <p>Title: {movie.Title}</p>
-//             <p>Year: {movie.Year}</p>
-//             <p>imdbID: {movie.imdbID}</p>
-//             <p>Type: {movie.Type}</p>
-//             <p>Poster: {movie.Poster}</p>
-//         </div>
-//     );
-// }
- 
 export default MovieCard;
 
 /**
