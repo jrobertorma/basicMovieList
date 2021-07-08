@@ -64,7 +64,6 @@ const App = () => {
 			<CssBaseline />
 
 			<Container>
-			
 				<Box my={4}>
 					<Typography variant="h4" component="h1" gutterBottom>
 						movieList
@@ -72,7 +71,7 @@ const App = () => {
 
 					<form onSubmit={ (event) => handleSearchSubmit(event) }>
 						<Grid container spacing={3}>
-							<Grid item xs={2}> 
+							<Grid item xs> 
 								<TextField 
 									id="searchTerm" 
 									name="searchTerm" 
@@ -81,7 +80,7 @@ const App = () => {
 								/>
 							</Grid>
 							
-							<Grid item xs={2}> 
+							<Grid item xs> 
 								<Button type="submit" variant="contained" color="primary">
 									Search
 								</Button>
@@ -94,7 +93,7 @@ const App = () => {
 						<Grid item xs={12}>
 							<p>Page:{pageNumber}</p>
 						</Grid>
-						<Grid item xs={2}>
+						<Grid item xs>
 							<Button 
 								variant="contained" 
 								color="primary" 
@@ -103,7 +102,7 @@ const App = () => {
 								Previous page
 							</Button>
 						</Grid>
-						<Grid item xs={2}> 
+						<Grid item xs> 
 							<Button 
 								variant="contained" 
 								color="primary" 

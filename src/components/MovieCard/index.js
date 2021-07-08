@@ -23,29 +23,29 @@ const MovieCard = ({movie}) => {
 
     return (
         <Card className={classes.root}>
-        <CardActionArea>
-            <CardMedia
-            className={classes.media}
-            image={movie.Poster}
-            title={movie.Title}
-            />
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-                {movie.Title}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
-            </Typography>
-            </CardContent>
-        </CardActionArea>
-        <CardActions>
-            <Button size="small" color="primary">
-            Share
-            </Button>
-            <Button size="small" color="primary">
-            Learn More
-            </Button>
-        </CardActions>
+            <CardActionArea>
+                <CardMedia
+                className={classes.media}
+                image={movie.Poster}
+                title={movie.Title}
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {movie.Title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button size="small" color="primary">
+                Share
+                </Button>
+                <Button size="small" color="primary">
+                Learn More
+                </Button>
+            </CardActions>
         </Card>
     );
 }

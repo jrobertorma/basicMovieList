@@ -10,8 +10,8 @@ const MovieList = (props) => {
             {/* <p>{movies[0].Title}</p> */}
             {
                 props.movies.map ( movie => (
-                        <Grid item xs={3}>
-                            <MovieCard key={movie.imdbID} movie={movie}/>
+                        <Grid item xs={12} sm={6} md={3} key={movie.imdbID}>
+                            <MovieCard movie={movie}/>
                         </Grid>
                     )
                 )
