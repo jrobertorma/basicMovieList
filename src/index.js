@@ -65,12 +65,12 @@ const App = () => {
 
 			<Container>
 				<Box my={4}>
-					<Typography variant="h4" component="h1" gutterBottom>
+					<Typography variant="h4" component="h1" align="justify" gutterBottom>
 						movieList
 					</Typography>
 
 					<form onSubmit={ (event) => handleSearchSubmit(event) }>
-						<Grid container spacing={3}>
+						<Grid container spacing={1} alignItems="center" justify="center">
 							<Grid item xs> 
 								<TextField 
 									id="searchTerm" 
@@ -89,11 +89,11 @@ const App = () => {
 						
 					</form>
 
-					<Grid container spacing={3}>
-						<Grid item xs={12}>
+					<Grid container spacing={1} alignItems="center" justify="center">
+						<Grid item xs={12} >
 							<p>Page:{pageNumber}</p>
 						</Grid>
-						<Grid item xs>
+						<Grid item xs={6} sm={2}>
 							<Button 
 								variant="contained" 
 								color="primary" 
@@ -102,7 +102,7 @@ const App = () => {
 								Previous page
 							</Button>
 						</Grid>
-						<Grid item xs> 
+						<Grid item xs={6} sm={2}> 
 							<Button 
 								variant="contained" 
 								color="primary" 
