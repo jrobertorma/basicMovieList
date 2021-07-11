@@ -70,8 +70,8 @@ const App = () => {
 					</Typography>
 
 					<form onSubmit={ (event) => handleSearchSubmit(event) }>
-						<Grid container spacing={1} alignItems="center" justify="center">
-							<Grid item xs> 
+						<Grid container spacing={2} alignItems="center">
+							<Grid item xs={6} sm={4} md={2}> 
 								<TextField 
 									id="searchTerm" 
 									name="searchTerm" 
@@ -80,7 +80,7 @@ const App = () => {
 								/>
 							</Grid>
 							
-							<Grid item xs> 
+							<Grid item xs={6} sm={4} md={2}> 
 								<Button type="submit" variant="contained" color="primary">
 									Search
 								</Button>
@@ -89,7 +89,7 @@ const App = () => {
 						
 					</form>
 
-					<Grid container spacing={1} alignItems="center" justify="center">
+					<Grid container spacing={1} alignItems="center" justify="space-around">
 						<Grid item xs={12} >
 							<p>Page:{pageNumber}</p>
 						</Grid>

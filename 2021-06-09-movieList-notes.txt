@@ -214,9 +214,20 @@ ADDING STYLES
 			Wrap the <App /> component with the theme provider
 
 		4.4.4 Rebuild components with material ui
+			First we update the search form using a <Grid /> container and items to display the field and the button in the same row.
+			Notice that the <Grid item/> can define the number of imaginary columns its childends will have as width of a total of twelve, this value is preceded by the breakpoint where that setting will have effect.
 
-			Cards doesn't resize <- AQUÍ VAAAAAAAAS :P
+			e.g.
 
+				<Grid item xs={6} sm={4} md={2}> 
+					{/*... stuff ...*/}
+				</Grid>
+
+			Will ocupy half of the screen on extra small screens (xs) (or six columns out of twelve), but one third on small screens (sm) and just 1/6 on medium and bigger screen sizes.
+
+			You can check the values in pixels of every breakpoint at https://material-ui.com/customization/breakpoints/#breakpoints
+
+			And the rest of the <Grid /> props you can use at https://material-ui.com/components/grid/
 
 
 COOL LINKS
