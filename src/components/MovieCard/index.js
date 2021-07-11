@@ -20,13 +20,14 @@ const useStyles = makeStyles({
 
 const MovieCard = ({movie}) => {
     const classes = useStyles();
+    const moviePoster = movie.Poster == 'N/A' ? 'https://billiardport.com/img/flyers/no_poster_available.jpg' : movie.Poster;
 
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
                 className={classes.media}
-                image={movie.Poster}
+                image={moviePoster}
                 title={movie.Title}
                 />
                 <CardContent>
