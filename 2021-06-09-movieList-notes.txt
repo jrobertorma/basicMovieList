@@ -189,7 +189,7 @@ BUILDING THE APP
 		It is located at src\index.js, it makes an API call with the fetch() method (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and retrieves the movie data, it uses react state to handle the page and search values changes and then resends the API request, to finally render the results calling the <MovieList /> component.
 
 	3.3 MovieList component
-		It gets an array of movie objects and renders it using map() with every array item as argument of the callback function wich calls the <MovieCard /> component.
+		It gets an array of movie objects and renders it using map() with every array item as the argument of the callback function wich calls the <MovieCard /> component.
 
 	3.4 MovieCard component
 		It gets a movie object and renders it as a card (eventually lol)
@@ -229,6 +229,15 @@ ADDING STYLES
 
 			And the rest of the <Grid /> props you can use at https://material-ui.com/components/grid/
 
+		4.4.5 Create new movie detail component
+			This component will get a variable with the movie ID and will retrieve and display the movie data in a new 'page', we will use react-router to handle the routes and variables, and to allow the user return to the movie-list page/component.
+
+			Create new file at src\containers\MovieDetail\index.js
+
+			Install react-router
+
+			https://reactrouter.com/web/example/url-params 
+			https://material-ui.com/guides/composition/ <---- AQUÍ VAS :) 
 
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o

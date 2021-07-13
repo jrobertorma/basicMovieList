@@ -3,20 +3,32 @@ import React from "react";
 import Grid from '@material-ui/core/Grid';
 
 import MovieCard from "../../components/MovieCard";
+import MovieDetail from "../MovieDetail";
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
 
 const MovieList = (props) => {
-    return ( 
-        <Grid container spacing={3}>
-            {/* <p>{movies[0].Title}</p> */}
-            {
-                props.movies.map ( movie => (
-                        <Grid item xs={12} sm={6} md={3} key={movie.imdbID}>
-                            <MovieCard movie={movie}/>
-                        </Grid>
+    return (
+        <Router>
+            <Grid container spacing={3}>
+                {/* <p>{movies[0].Title}</p> */}
+                {
+                    props.movies.map ( movie => (
+                            <Grid item xs={12} sm={6} md={3} key={movie.imdbID}>
+                                <MovieCard movie={movie}/>
+                            </Grid>
+                        )
                     )
-                )
-            }
-        </Grid> 
+                }
+            </Grid>
+            <Switch>
+                <Route path="/:id" children={<MovieDetail />} />
+            </Switch>
+        </Router>
     );
 }
  
