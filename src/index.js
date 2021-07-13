@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import MovieList from './containers/MovieList';
+import MovieDetail from './containers/MovieDetail';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -12,6 +13,8 @@ import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const App = () => {
     const [movies, setMovies] = useState([]);
@@ -60,7 +63,9 @@ const App = () => {
 	// }, [searchTerm]);
 
     return (
+		
         <ThemeProvider theme={theme}> 
+		<BrowserRouter>
 			<CssBaseline />
 
 			<Container>
@@ -112,11 +117,20 @@ const App = () => {
 							</Button>
 						</Grid>
 					</Grid>
-
-					<MovieList movies={movies} />
 				</Box>
     		</Container>
+			<Switch>
+				<Route exact path="/">
+					<MovieList movies={movies} />
+				</Route>
+				<Route path="/:id">
+					<MovieDetail />
+				</Route>
+			</Switch>
+		</BrowserRouter>
 		</ThemeProvider>
+
+		
     )
 }
 

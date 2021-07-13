@@ -237,7 +237,12 @@ ADDING STYLES
 			Install react-router
 
 			https://reactrouter.com/web/example/url-params 
-			https://material-ui.com/guides/composition/ <---- AQUÍ VAS :) 
+			https://material-ui.com/guides/composition/ 
+
+			Will change a lot of stuff, added the '/' route to render the <MovieList> component
+			And the '/:id' route to render details, we have to create a kind of 'Header' and move the buttons and form to a new component/route
+
+			<---- AQUÍ VAS :) 
 
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o
