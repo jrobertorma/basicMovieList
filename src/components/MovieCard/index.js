@@ -9,22 +9,33 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { Link as RouterLink } from 'react-router-dom';
+import MovieDetail from '../../containers/MovieDetail';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 555,
+        maxWidth: 555,
     },
     media: {
-      height: 428,
+        height: 428,
     },
-  });
+});
 
 const MovieCard = ({movie}) => {
     const classes = useStyles();
     const moviePoster = movie.Poster == 'N/A' ? 'https://billiardport.com/img/flyers/no_poster_available.jpg' : movie.Poster;
 
+    const [open, setOpen] = React.useState(false);
+  
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
     return (
+        <div>
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
@@ -45,11 +56,14 @@ const MovieCard = ({movie}) => {
                 <Button size="small" color="primary">
                     Share
                 </Button>
-                <Button size="small" color="primary" component={RouterLink} to={"/"+movie.imdbID}>
+                <Button size="small" color="primary" type="button" onClick={handleOpen}>
                     Learn More
                 </Button>
             </CardActions>
         </Card>
+
+            <MovieDetail open={open} handleClose={handleClose} movie={movie}/>
+        </div>
     );
 }
 
