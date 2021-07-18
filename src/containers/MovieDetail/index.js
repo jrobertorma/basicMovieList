@@ -1,13 +1,25 @@
 import React from "react";
 
-import { useParams } from 'react-router-dom';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 const useStyles = makeStyles((theme) => ({
+    root: {
+        maxWidth: 355,
+    },
+    media: {
+        height: 418,
+    },
     modal: {
       display: 'flex',
       alignItems: 'center',
@@ -15,14 +27,15 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
       backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
+      /*border: '2px solid #000',*/
       boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
+      padding: theme.spacing(2, 2, 2),
     },
   }));
 
 const MovieDetail = ({open, handleClose, movie}) => {
     const classes = useStyles();
+    const moviePoster = movie.Poster == 'N/A' ? 'https://billiardport.com/img/flyers/no_poster_available.jpg' : movie.Poster;
 
     return (
         <div>
@@ -40,8 +53,28 @@ const MovieDetail = ({open, handleClose, movie}) => {
             >
                 <Fade in={open}>
                 <div className={classes.paper}>
-                    <h2 id="transition-modal-title">Name: {movie.Title}</h2>
-                    <p id="transition-modal-description">Soy movie detail</p>
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                            className={classes.media}
+                            image={moviePoster}
+                            title={movie.Title}
+                            />
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {movie.Title}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            <Button size="small" color="primary">
+                                Share
+                            </Button>
+                        </CardActions>
+                    </Card>
                 </div>
                 </Fade>
             </Modal>
