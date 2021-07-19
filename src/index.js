@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import MovieDetail from './containers/MovieDetail';
 import MovieListHeader from './containers/MovieListHeader';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,8 +12,6 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -51,22 +48,10 @@ const App = () => {
 			<Container>
 				<Box my={4}>
 					<CssBaseline />
-
-					<BrowserRouter>
-						<Switch>
-							<Route exact path="/">
-								<MovieListHeader />
-							</Route>
-							<Route path="/:id">
-								<MovieDetail />
-							</Route>
-						</Switch>
-					</BrowserRouter>
+					<MovieListHeader />
 				</Box>
     		</Container>
 		</ThemeProvider>
-
-		
     )
 }
 

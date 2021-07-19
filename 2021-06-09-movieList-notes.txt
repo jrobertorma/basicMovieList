@@ -186,13 +186,21 @@ BUILDING THE APP
 		Finally we create the components and save them in its corresponding index.js files.
 
 	3.2 App component
-		It is located at src\index.js, it makes an API call with the fetch() method (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and retrieves the movie data, it uses react state to handle the page and search values changes and then resends the API request, to finally render the results calling the <MovieList /> component.
+		It is located at src\index.js, it calls the <MovieListHeader /> component.
 
-	3.3 MovieList component
+	3.3 MovieListHeader component
+		it makes an API call with the fetch() method (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and retrieves the movie data, it uses react state to handle the page and search value changes and then resends the API request, to finally render the results calling the <MovieList /> component.
+
+		The components uses a <form> and two <Button /> components to allow the user to make searches and switch between result pages.  
+
+	3.4 MovieList component
 		It gets an array of movie objects and renders it using map() with every array item as the argument of the callback function wich calls the <MovieCard /> component.
 
-	3.4 MovieCard component
-		It gets a movie object and renders it as a card (eventually lol)
+	3.5 MovieCard component
+		It gets a movie object and renders it as a card, it also renders a <MovieDetail /> component.
+
+	3.6 MovieDetail component
+		Is a modal, it gets the {open, handleClose, movie} parameters to handle the user interactions and know what to display.
 
 ADDING STYLES
 	4.1 Install Material UI
@@ -234,15 +242,13 @@ ADDING STYLES
 
 			Create new file at src\containers\MovieDetail\index.js
 
-			Install react-router
+			The 'Learn more' button within the src\components\MovieCard\index.js updates the 'open' state (we used the useState hook), wich updates the MovieDetail component.
 
-			https://reactrouter.com/web/example/url-params 
-			https://material-ui.com/guides/composition/ 
+				<MovieDetail open={open} handleClose={handleClose} movie={movie}/>
 
-			Will change a lot of stuff, added the '/' route to render the <MovieList> component
-			And the '/:id' route to render details, we have to create a kind of 'Header' and move the buttons and form to a new component/route
+			Notice we also pass the handleClose() function and the 'movie' object the component got from its parent (src\containers\MovieListHeader\MovieList.js)
 
-			<---- AQUÍ VAS :) 
+			MovieDetail uses a Material-UI <Modal /> component to fetch the movie details from the API and display them as a modal window.
 
 COOL LINKS
 http://www.omdbapi.com/ - Free API to obtain movie information :o
