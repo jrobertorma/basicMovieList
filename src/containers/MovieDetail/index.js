@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -66,6 +66,7 @@ const MovieDetail = ({open, handleClose, movie}) => {
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
+                                Genre: {movie.Genre} Director: {movie.Director} Writer: {movie.Writer}
                             </Typography>
                             </CardContent>
                         </CardActionArea>
