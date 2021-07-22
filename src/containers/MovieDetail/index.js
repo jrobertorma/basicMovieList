@@ -14,9 +14,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import Grid from '@material-ui/core/Grid';
+
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 355,
+        maxWidth: 510,
     },
     media: {
         height: 418,
@@ -32,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 2, 2),
     },
+    cardActions:{
+        display: 'flex',
+        justifyContent: 'center',
+    }
   }));
 
 const MovieDetail = ({open, handleClose, movie}) => {
@@ -56,6 +62,8 @@ const MovieDetail = ({open, handleClose, movie}) => {
                 <div className={classes.paper}>
                     <Card className={classes.root}>
                         <CardActionArea>
+                            <Grid container spacing={1}>
+                            <Grid item xs={12} sm={6}>
                             {moviePoster ? (
                                 <CardMedia
                                 className={classes.media}
@@ -65,19 +73,23 @@ const MovieDetail = ({open, handleClose, movie}) => {
                             ) : (
                                 <CircularProgress />
                             )}
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                {movie.Title}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
-                                Genre: {movie.Genre} Director: {movie.Director} Writer: {movie.Writer}
-                            </Typography>
-                            </CardContent>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        {movie.Title}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
+                                        Genre: {movie.Genre} Director: {movie.Director} Writer: {movie.Writer}
+                                    </Typography>
+                                </CardContent>
+                            </Grid>
+                            </Grid>
                         </CardActionArea>
-                        <CardActions>
-                            <Button size="small" color="primary">
-                                Share
+                        <CardActions className={classes.cardActions}>
+                            <Button  size="small" color="primary" onClick={handleClose}>
+                                Close
                             </Button>
                         </CardActions>
                     </Card>
