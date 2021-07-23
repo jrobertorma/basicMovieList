@@ -18,7 +18,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 510,
+        maxWidth: 540,
     },
     media: {
         height: 418,
@@ -80,8 +80,25 @@ const MovieDetail = ({open, handleClose, movie}) => {
                                         {movie.Title}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Year: {movie.Year} imdbID: {movie.imdbID} Type: {movie.Type}
-                                        Genre: {movie.Genre} Director: {movie.Director} Writer: {movie.Writer}
+                                        <strong>Year:</strong> {movie.Year} 
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        <strong>Type:</strong> {movie.Type}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        <strong>Genre:</strong> {movie.Genre}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        <strong>Director:</strong> {movie.Director} 
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        <strong>Writer:</strong> {movie.Writer}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        <strong>Actors:</strong> {movie.Actors}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        <strong>Plot:</strong> {movie.Plot}
                                     </Typography>
                                 </CardContent>
                             </Grid>
