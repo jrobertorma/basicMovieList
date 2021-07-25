@@ -238,7 +238,7 @@ ADDING STYLES
 			And the rest of the <Grid /> props you can use at https://material-ui.com/components/grid/
 
 		4.4.5 Create new movie detail component
-			This component will get a variable with the movie ID and will retrieve and display the movie data in a new 'page', we will use react-router to handle the routes and variables, and to allow the user return to the movie-list page/component.
+			This component will get a variable with the movie ID and will retrieve and display the movie data in a new 'page'.
 
 			Create new file at src\containers\MovieDetail\index.js
 
